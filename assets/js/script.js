@@ -38,20 +38,28 @@ $(document).ready(function () {
     });
 
     // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+// Initialiser EmailJS avec votre utilisateur
+$("#contact-form").submit(function (event) {
+    // Initialiser EmailJS avec votre User ID
+    emailjs.init("c9rD4JoAPPtt9opMk");
 
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
+    // Envoyer les données du formulaire via EmailJS
+    emailjs.sendForm('service_vxnh7qd', 'template_j2d3g4c', '#contact-form')
+        .then(function (response) {
+            // Si l'envoi est réussi, on réinitialise le formulaire et affiche un message de succès
+            console.log('SUCCESS!', response.status, response.text);
+            document.getElementById("contact-form").reset();  // Réinitialiser le formulaire
+            alert("Form Submitted Successfully");  // Afficher une alerte de succès
+        }, function (error) {
+            // Si l'envoi échoue, on affiche un message d'erreur
+            console.log('FAILED...', error);
+            alert("Form Submission Failed! Try Again");  // Afficher une alerte d'erreur
+        });
+
+    // Empêcher le comportement par défaut du formulaire (soumission traditionnelle)
+    event.preventDefault();
+});
+
     // <!-- emailjs to mail contact form data -->
 
 });
@@ -59,7 +67,7 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Jigar Sable";
+            document.title = "Portfolio | Bahy Imane";
             $("#favicon").attr("href", "assets/images/favicon.png");
         }
         else {
